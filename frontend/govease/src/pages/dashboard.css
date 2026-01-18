@@ -1,0 +1,121 @@
+.dashboard {
+    min-height: 100vh;
+    background: #f3f7fb;
+}
+
+/* ===== HEADER ===== */
+.dashboard-header {
+    height: 64px;
+    background: #0a6f86;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+}
+
+.nav span {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logout {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* ===== SERVICES ===== */
+.services-section {
+    padding: 24px;
+}
+
+.services-section h3 {
+    margin-bottom: 14px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-card .icon {
+    font-size: 28px;
+    color: #0a6f86;
+    margin-bottom: 8px;
+}
+
+/* ===== APPOINTMENTS ===== */
+.appointments-section {
+    padding: 0 24px 24px;
+}
+
+.appointment-box {
+    background: white;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 12px;
+}
+
+.remaining {
+    background: #e6f4f8;
+    color: #0a6f86;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .services-section,
+    .appointments-section {
+        padding: 16px;
+    }
+
+    .appointment-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

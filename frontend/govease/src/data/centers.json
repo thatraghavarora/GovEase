@@ -1,0 +1,452 @@
+[
+  {
+    "id": "hsp-jpr-001",
+    "name": "SMS Hospital Jaipur",
+    "type": "Hospital",
+    "code": "JPR-HSP-001",
+    "city": "Jaipur",
+    "location": "Tonk Road",
+    "departments": ["OPD", "Emergency", "Radiology", "Cardiology", "Orthopedics"]
+  },
+  {
+    "id": "hsp-jpr-002",
+    "name": "Fortis Escorts Jaipur",
+    "type": "Hospital",
+    "code": "JPR-HSP-002",
+    "city": "Jaipur",
+    "location": "Malviya Nagar",
+    "departments": ["OPD", "Emergency", "Radiology", "Cardiology", "Neurology"]
+  },
+  {
+    "id": "hsp-jpr-003",
+    "name": "Jaipur Golden Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-003",
+    "city": "Jaipur",
+    "location": "Vaishali Nagar",
+    "departments": ["OPD", "Emergency", "Pediatrics", "Orthopedics", "ENT"]
+  },
+  {
+    "id": "hsp-jpr-004",
+    "name": "Maheshwari Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-004",
+    "city": "Jaipur",
+    "location": "Bapu Nagar",
+    "departments": ["OPD", "Emergency", "General Surgery", "Urology", "Dermatology"]
+  },
+  {
+    "id": "hsp-jpr-005",
+    "name": "Eternal Heart Care Centre",
+    "type": "Hospital",
+    "code": "JPR-HSP-005",
+    "city": "Jaipur",
+    "location": "JLN Marg",
+    "departments": ["OPD", "Cardiology", "ICU", "Diagnostics", "Rehab"]
+  },
+  {
+    "id": "hsp-jpr-006",
+    "name": "Apex Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-006",
+    "city": "Jaipur",
+    "location": "Sodala",
+    "departments": ["OPD", "Emergency", "Gynecology", "Orthopedics", "ENT"]
+  },
+  {
+    "id": "hsp-jpr-007",
+    "name": "EHCC Emergency",
+    "type": "Hospital",
+    "code": "JPR-HSP-007",
+    "city": "Jaipur",
+    "location": "Prithviraj Road",
+    "departments": ["Emergency", "Trauma", "ICU", "Radiology", "Cardiology"]
+  },
+  {
+    "id": "hsp-jpr-008",
+    "name": "Goyal Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-008",
+    "city": "Jaipur",
+    "location": "Jagatpura",
+    "departments": ["OPD", "Emergency", "Neurology", "Radiology", "Gastro"]
+  },
+  {
+    "id": "hsp-jpr-009",
+    "name": "Tagore Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-009",
+    "city": "Jaipur",
+    "location": "Mansarovar",
+    "departments": ["OPD", "Emergency", "Pediatrics", "Dental", "ENT"]
+  },
+  {
+    "id": "hsp-jpr-010",
+    "name": "Mahatma Gandhi Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-010",
+    "city": "Jaipur",
+    "location": "Sitapura",
+    "departments": ["OPD", "Emergency", "Orthopedics", "Radiology", "Oncology"]
+  },
+  {
+    "id": "hsp-jpr-011",
+    "name": "Sawai Man Singh OPD",
+    "type": "Hospital",
+    "code": "JPR-HSP-011",
+    "city": "Jaipur",
+    "location": "Sawai Ram Singh Rd",
+    "departments": ["OPD", "General Medicine", "Cardiology", "ENT", "Radiology"]
+  },
+  {
+    "id": "hsp-jpr-012",
+    "name": "Khandaka Memorial Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-012",
+    "city": "Jaipur",
+    "location": "Adarsh Nagar",
+    "departments": ["OPD", "Gynecology", "Pediatrics", "Diagnostics", "ENT"]
+  },
+  {
+    "id": "hsp-jpr-013",
+    "name": "Jawahar Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-013",
+    "city": "Jaipur",
+    "location": "Raja Park",
+    "departments": ["OPD", "Emergency", "Orthopedics", "Physio", "Dermatology"]
+  },
+  {
+    "id": "hsp-jpr-014",
+    "name": "Bharat Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-014",
+    "city": "Jaipur",
+    "location": "Civil Lines",
+    "departments": ["OPD", "Emergency", "Neurology", "Cardiology", "Rehab"]
+  },
+  {
+    "id": "hsp-jpr-015",
+    "name": "Pink City Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-015",
+    "city": "Jaipur",
+    "location": "C Scheme",
+    "departments": ["OPD", "Emergency", "ENT", "Dental", "Diagnostics"]
+  },
+  {
+    "id": "hsp-jpr-016",
+    "name": "Rajasthan Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-016",
+    "city": "Jaipur",
+    "location": "Vidhyadhar Nagar",
+    "departments": ["OPD", "Orthopedics", "Radiology", "ENT", "General Surgery"]
+  },
+  {
+    "id": "hsp-jpr-017",
+    "name": "Aravali Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-017",
+    "city": "Jaipur",
+    "location": "Kalwar Road",
+    "departments": ["OPD", "Emergency", "Pediatrics", "Gynecology", "Radiology"]
+  },
+  {
+    "id": "hsp-jpr-018",
+    "name": "Shree Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-018",
+    "city": "Jaipur",
+    "location": "Murlipura",
+    "departments": ["OPD", "Emergency", "Orthopedics", "ENT", "Cardiology"]
+  },
+  {
+    "id": "hsp-jpr-019",
+    "name": "Nirmal Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-019",
+    "city": "Jaipur",
+    "location": "Jagatpura",
+    "departments": ["OPD", "Emergency", "Radiology", "Dermatology", "General Surgery"]
+  },
+  {
+    "id": "hsp-jpr-020",
+    "name": "Aarogya Hospital",
+    "type": "Hospital",
+    "code": "JPR-HSP-020",
+    "city": "Jaipur",
+    "location": "Pratap Nagar",
+    "departments": ["OPD", "Emergency", "Orthopedics", "ENT", "Diagnostics"]
+  },
+  {
+    "id": "rto-jpr-101",
+    "name": "Jaipur RTO Office",
+    "type": "RTO",
+    "code": "JPR-RTO-101",
+    "city": "Jaipur",
+    "location": "Jhalana Doongri",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-102",
+    "name": "RTO North Jaipur",
+    "type": "RTO",
+    "code": "JPR-RTO-102",
+    "city": "Jaipur",
+    "location": "Vidhyadhar Nagar",
+    "departments": ["License", "Registration", "Tax", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-103",
+    "name": "RTO South Jaipur",
+    "type": "RTO",
+    "code": "JPR-RTO-103",
+    "city": "Jaipur",
+    "location": "Sitapura",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-104",
+    "name": "RTO East Jaipur",
+    "type": "RTO",
+    "code": "JPR-RTO-104",
+    "city": "Jaipur",
+    "location": "Jagatpura",
+    "departments": ["License", "Registration", "Tax", "Permit"]
+  },
+  {
+    "id": "rto-jpr-105",
+    "name": "RTO West Jaipur",
+    "type": "RTO",
+    "code": "JPR-RTO-105",
+    "city": "Jaipur",
+    "location": "Vaishali Nagar",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-106",
+    "name": "RTO Mansarovar",
+    "type": "RTO",
+    "code": "JPR-RTO-106",
+    "city": "Jaipur",
+    "location": "Mansarovar",
+    "departments": ["License", "Registration", "Tax", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-107",
+    "name": "RTO Malviya Nagar",
+    "type": "RTO",
+    "code": "JPR-RTO-107",
+    "city": "Jaipur",
+    "location": "Malviya Nagar",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-108",
+    "name": "RTO Civil Lines",
+    "type": "RTO",
+    "code": "JPR-RTO-108",
+    "city": "Jaipur",
+    "location": "Civil Lines",
+    "departments": ["License", "Registration", "Tax", "Permit"]
+  },
+  {
+    "id": "rto-jpr-109",
+    "name": "RTO Tonk Road",
+    "type": "RTO",
+    "code": "JPR-RTO-109",
+    "city": "Jaipur",
+    "location": "Tonk Road",
+    "departments": ["License", "Registration", "Fitness", "Permit"]
+  },
+  {
+    "id": "rto-jpr-110",
+    "name": "RTO Jhotwara",
+    "type": "RTO",
+    "code": "JPR-RTO-110",
+    "city": "Jaipur",
+    "location": "Jhotwara",
+    "departments": ["License", "Registration", "Tax", "Permit"]
+  },
+  {
+    "id": "rto-jpr-111",
+    "name": "RTO Sanganer",
+    "type": "RTO",
+    "code": "JPR-RTO-111",
+    "city": "Jaipur",
+    "location": "Sanganer",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-112",
+    "name": "RTO Chitrakoot",
+    "type": "RTO",
+    "code": "JPR-RTO-112",
+    "city": "Jaipur",
+    "location": "Chitrakoot",
+    "departments": ["License", "Registration", "Tax", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-113",
+    "name": "RTO Jagatpura",
+    "type": "RTO",
+    "code": "JPR-RTO-113",
+    "city": "Jaipur",
+    "location": "Jagatpura",
+    "departments": ["License", "Registration", "Permit", "Fitness"]
+  },
+  {
+    "id": "rto-jpr-114",
+    "name": "RTO Amer",
+    "type": "RTO",
+    "code": "JPR-RTO-114",
+    "city": "Jaipur",
+    "location": "Amer",
+    "departments": ["License", "Registration", "Tax", "Permit"]
+  },
+  {
+    "id": "rto-jpr-115",
+    "name": "RTO Govindpura",
+    "type": "RTO",
+    "code": "JPR-RTO-115",
+    "city": "Jaipur",
+    "location": "Govindpura",
+    "departments": ["License", "Registration", "Fitness", "Permit"]
+  },
+  {
+    "id": "gov-jpr-201",
+    "name": "Jaipur District Collectorate",
+    "type": "Govt Office",
+    "code": "JPR-GOV-201",
+    "city": "Jaipur",
+    "location": "Collectorate Circle",
+    "departments": ["Certificates", "Grievance", "Revenue", "RTI"]
+  },
+  {
+    "id": "gov-jpr-202",
+    "name": "Jaipur Nagar Nigam",
+    "type": "Govt Office",
+    "code": "JPR-GOV-202",
+    "city": "Jaipur",
+    "location": "Lal Kothi",
+    "departments": ["Taxes", "Utilities", "Sanitation", "Licenses"]
+  },
+  {
+    "id": "gov-jpr-203",
+    "name": "Rajasthan Seva Sadan",
+    "type": "Govt Office",
+    "code": "JPR-GOV-203",
+    "city": "Jaipur",
+    "location": "C Scheme",
+    "departments": ["Certificates", "Pension", "Grievance", "RTI"]
+  },
+  {
+    "id": "gov-jpr-204",
+    "name": "Jaipur UIDAI Center",
+    "type": "Govt Office",
+    "code": "JPR-GOV-204",
+    "city": "Jaipur",
+    "location": "MI Road",
+    "departments": ["Aadhaar", "Update", "Biometric", "Correction"]
+  },
+  {
+    "id": "gov-jpr-205",
+    "name": "Jaipur Passport Seva",
+    "type": "Govt Office",
+    "code": "JPR-GOV-205",
+    "city": "Jaipur",
+    "location": "Ridhi Sidhi",
+    "departments": ["Passport", "Verification", "Tatkal", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-206",
+    "name": "Jaipur Civil Supplies",
+    "type": "Govt Office",
+    "code": "JPR-GOV-206",
+    "city": "Jaipur",
+    "location": "Shastri Nagar",
+    "departments": ["Ration", "License", "Grievance", "RTI"]
+  },
+  {
+    "id": "gov-jpr-207",
+    "name": "Jaipur Employment Office",
+    "type": "Govt Office",
+    "code": "JPR-GOV-207",
+    "city": "Jaipur",
+    "location": "Gopalpura",
+    "departments": ["Registration", "Counseling", "Placements", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-208",
+    "name": "Jaipur Women & Child Dept",
+    "type": "Govt Office",
+    "code": "JPR-GOV-208",
+    "city": "Jaipur",
+    "location": "Vivek Vihar",
+    "departments": ["Schemes", "Counseling", "Grievance", "Helpline"]
+  },
+  {
+    "id": "gov-jpr-209",
+    "name": "Jaipur Health Department",
+    "type": "Govt Office",
+    "code": "JPR-GOV-209",
+    "city": "Jaipur",
+    "location": "JLN Marg",
+    "departments": ["Licensing", "Complaints", "Reports", "RTI"]
+  },
+  {
+    "id": "gov-jpr-210",
+    "name": "Jaipur Education Office",
+    "type": "Govt Office",
+    "code": "JPR-GOV-210",
+    "city": "Jaipur",
+    "location": "Bani Park",
+    "departments": ["Certificates", "Scholarships", "Grievance", "RTI"]
+  },
+  {
+    "id": "gov-jpr-211",
+    "name": "Jaipur Housing Board",
+    "type": "Govt Office",
+    "code": "JPR-GOV-211",
+    "city": "Jaipur",
+    "location": "Pratap Nagar",
+    "departments": ["Allotment", "Payments", "Grievance", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-212",
+    "name": "Jaipur Police Seva Kendra",
+    "type": "Govt Office",
+    "code": "JPR-GOV-212",
+    "city": "Jaipur",
+    "location": "Ashok Nagar",
+    "departments": ["Verification", "Passport", "Complaint", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-213",
+    "name": "Jaipur Transport Office",
+    "type": "Govt Office",
+    "code": "JPR-GOV-213",
+    "city": "Jaipur",
+    "location": "Tonk Road",
+    "departments": ["Permits", "Taxes", "Fitness", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-214",
+    "name": "Jaipur Treasury Office",
+    "type": "Govt Office",
+    "code": "JPR-GOV-214",
+    "city": "Jaipur",
+    "location": "Civil Lines",
+    "departments": ["Payments", "Bills", "Pension", "Helpdesk"]
+  },
+  {
+    "id": "gov-jpr-215",
+    "name": "Jaipur Smart City Office",
+    "type": "Govt Office",
+    "code": "JPR-GOV-215",
+    "city": "Jaipur",
+    "location": "Jawahar Circle",
+    "departments": ["Projects", "Grievance", "Utility", "Helpdesk"]
+  }
+]

@@ -1,0 +1,208 @@
+/* ===== RESET ===== */
+.auth-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+.login-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dff3f8, #eef9fc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* ===== LOGIN CARD ===== */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* ===== WAVE HEADER ===== */
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    background: linear-gradient(180deg, #16b5d8, #0a6f86);
+    border-bottom-left-radius: 55% 28%;
+    border-bottom-right-radius: 55% 28%;
+}
+
+/* ===== BRAND ===== */
+.login-card h2 {
+    position: relative;
+    z-index: 1;
+    margin-top: 42px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.subtitle {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 6px;
+}
+
+/* ===== FORM ===== */
+.auth-page form {
+    margin-top: 150px;
+    padding: 0 28px 32px;
+}
+
+/* ===== ERROR ===== */
+.error {
+    text-align: center;
+    color: #d93025;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* ===== INPUT ===== */
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 46px;
+    border-radius: 14px;
+    border: 1.5px solid #cfdde3;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.input-group input:focus {
+    border-color: #16b5d8;
+    box-shadow: 0 0 0 3px rgba(22, 181, 216, 0.15);
+}
+
+/* ===== ICONS ===== */
+.input-group .icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7a8b94;
+    font-size: 14px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #7a8b94;
+}
+
+/* ===== BUTTON ===== */
+.login-card button {
+    width: 100%;
+    height: 50px;
+    margin-top: 12px;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(135deg, #0a6f86, #003a4a);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.login-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.create-account {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #6b7c85;
+}
+
+.create-account a {
+    color: #0a6f86;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+.footer-text {
+    text-align: center;
+    font-size: 12px;
+    color: #7a8b94;
+    padding-bottom: 16px;
+}
+
+/* ===================================================== */
+/* ===== LAPTOP (1366px – 1600px) FIX ===== */
+@media (min-width: 1024px) and (max-width: 1600px) {
+    .login-card {
+        max-width: 420px;
+    }
+
+    .login-card::before {
+        height: 180px;
+    }
+
+    form {
+        margin-top: 135px;
+        padding: 0 30px 34px;
+    }
+
+    button {
+        height: 48px;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    .login-card {
+        border-radius: 18px;
+    }
+
+    .login-card::before {
+        height: 165px;
+    }
+
+    form {
+        margin-top: 125px;
+        padding: 0 22px 26px;
+    }
+
+    button {
+        height: 46px;
+        font-size: 14px;
+    }
+}
