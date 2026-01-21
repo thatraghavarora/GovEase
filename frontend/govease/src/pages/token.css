@@ -93,18 +93,45 @@
 .summary-card.highlight {
   border-color: rgba(10, 111, 134, 0.4);
   box-shadow: 0 12px 32px rgba(10, 111, 134, 0.12);
+  background: linear-gradient(180deg, #f7fcfd 0%, #eef7fa 100%);
 }
 
 .token-number {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  margin: 1rem 0;
+  margin: 1rem 0 0.6rem;
+  color: #0a6f86;
+  letter-spacing: 0.02em;
 }
 
 .summary-actions {
   display: flex;
   gap: 0.8rem;
   margin-top: 1.4rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(16, 42, 67, 0.12);
+  color: #486581;
+}
+
+.detail-row strong {
+  color: #102a43;
+  font-weight: 600;
+}
+
+.detail-note {
+  margin-top: 0.6rem;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(10, 111, 134, 0.2);
+  color: #0a6f86;
+  font-weight: 600;
 }
 
 @media (max-width: 960px) {
@@ -115,5 +142,16 @@
   .token-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .token-form,
+  .token-summary {
+    padding: 1.4rem;
+  }
+
+  .summary-actions {
+    flex-direction: column;
   }
 }

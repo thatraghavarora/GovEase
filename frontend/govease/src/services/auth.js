@@ -1,3 +1,5 @@
+import { loginAdmin, registerAdmin } from "./api";
+
 const USERS_KEY = "govease_users";
 const SESSION_KEY = "govease_session";
 
@@ -12,6 +14,25 @@ const safeParse = (value, fallback) => {
 const loadUsers = () => safeParse(localStorage.getItem(USERS_KEY), []);
 const saveUsers = (users) =>
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+const setSession = (session) => {
+  localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+};
+
+const decodeJwtPayload = (token) => {
+  const payload = token.split(".")[1];
+  if (!payload) {
+    throw new Error("Invalid Google credential");
+  }
+
+  const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
+  const padded = normalized.padEnd(
+    normalized.length + ((4 - (normalized.length % 4)) % 4),
+    "="
+  );
+
+  return JSON.parse(atob(padded));
+};
 
 export const registerLocalUser = (payload) => {
   const users = loadUsers();
@@ -35,7 +56,7 @@ export const registerLocalUser = (payload) => {
 
   users.push(user);
   saveUsers(users);
-  localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+  setSession(user);
 
   return user;
 };
@@ -50,8 +71,62 @@ export const loginLocalUser = ({ email, password }) => {
     throw new Error("Invalid email or password");
   }
 
-  localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+  setSession(user);
   return user;
+};
+
+export const loginWithGoogle = (credential) => {
+  const profile = decodeJwtPayload(credential);
+
+  if (!profile?.email) {
+    throw new Error("Google profile is missing an email");
+  }
+
+  const users = loadUsers();
+  let user = users.find(
+    (item) => item.email.toLowerCase() === profile.email.toLowerCase()
+  );
+
+  if (!user) {
+    user = {
+      id: `user-${Date.now()}`,
+      name: profile.name || profile.given_name || "Google User",
+      email: profile.email,
+      mobile: "",
+      role: "user",
+      password: null,
+      provider: "google",
+      createdAt: new Date().toISOString(),
+    };
+    users.push(user);
+    saveUsers(users);
+  }
+
+  setSession(user);
+  return user;
+};
+
+export const loginCenterAdmin = async ({ username, password }) => {
+  try {
+    const response = await loginAdmin({ username, password });
+    setSession(response.data);
+    return response.data;
+  } catch (error) {
+    const message =
+      error?.response?.data?.message || error.message || "Admin login failed";
+    throw new Error(message);
+  }
+};
+
+export const registerCenterAdmin = async ({ centerId, centerCode, password }) => {
+  try {
+    const response = await registerAdmin({ centerId, centerCode, password });
+    return response.data;
+  } catch (error) {
+    const message =
+      error?.response?.data?.message || error.message || "Admin registration failed";
+    throw new Error(message);
+  }
 };
 
 export const logoutLocalUser = () => {

@@ -1,17 +1,14 @@
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getCenterById } from "../data/centers";
-import {
-  createToken,
-  getPendingCount,
-  getPendingCountByDepartment,
-} from "../services/queue";
+import { createToken, fetchQrStatus, fetchTokens } from "../services/api";
 import { getSession } from "../services/auth";
 import "./token.css";
 
 const Token = () => {
   const { centerId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const center = getCenterById(centerId);
   const session = getSession();
 
@@ -23,6 +20,9 @@ const Token = () => {
   });
   const [created, setCreated] = useState(null);
   const [error, setError] = useState("");
+  const [deptPending, setDeptPending] = useState(0);
+  const [qrStatus, setQrStatus] = useState(null);
+  const isQrInactive = qrStatus && !qrStatus.active;
 
   if (!center) {
     return (
@@ -44,24 +44,85 @@ const Token = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    handleCreateToken();
+  };
+
+  const loadCounts = async (department) => {
+    try {
+      const response = await fetchTokens({
+        centerId: center.id,
+        status: "pending",
+      });
+      const tokens = response.data;
+      const dept = department || form.department;
+      setDeptPending(
+        dept ? tokens.filter((token) => token.department === dept).length : tokens.length
+      );
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Failed to load tokens");
+    }
+  };
+
+  useEffect(() => {
+    loadCounts(form.department);
+  }, [center.id, form.department]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const qrCode = params.get("qr");
+    if (!qrCode) {
+      setQrStatus(null);
+      return;
+    }
+
+    const validateQr = async () => {
+      try {
+        const response = await fetchQrStatus(qrCode);
+        const qr = response.data;
+        if (qr.centerId !== center.id) {
+          setQrStatus({ active: false, message: "QR code is for another center." });
+          return;
+        }
+        setQrStatus({
+          active: Boolean(qr.active),
+          message: qr.active ? "" : "This QR code is deactivated.",
+        });
+      } catch (err) {
+        setQrStatus({ active: false, message: "QR code not valid." });
+      }
+    };
+
+    validateQr();
+  }, [center.id, location.search]);
+
+  const handleCreateToken = async () => {
     setError("");
+
+    if (qrStatus && !qrStatus.active) {
+      setError(qrStatus.message || "QR code is inactive.");
+      return;
+    }
 
     if (!form.name || !form.phone || !form.purpose || !form.department) {
       setError("Please fill in all fields.");
       return;
     }
 
-    const token = createToken(center, {
-      ...form,
-      createdBy: session?.email || null,
-    });
-    setCreated(token);
+    try {
+      const response = await createToken({
+        centerId: center.id,
+        name: form.name,
+        phone: form.phone,
+        purpose: form.purpose,
+        department: form.department,
+        createdBy: session?.email || null,
+      });
+      setCreated(response.data);
+      await loadCounts(form.department);
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Token failed");
+    }
   };
-
-  const pendingCount = getPendingCount(center.id);
-  const deptPending = form.department
-    ? getPendingCountByDepartment(center.id, form.department)
-    : pendingCount;
 
   return (
     <div className="token-page">
@@ -84,6 +145,9 @@ const Token = () => {
             Fill in your details. Your token will be sent to the admin queue.
           </p>
           {error && <p className="error">{error}</p>}
+          {isQrInactive && (
+            <p className="error">{qrStatus.message}</p>
+          )}
           <form onSubmit={handleSubmit}>
             <label>
               Full name
@@ -129,7 +193,7 @@ const Token = () => {
                 placeholder="OPD consultation / License renewal"
               />
             </label>
-            <button className="primary" type="submit">
+            <button className="primary" type="submit" disabled={isQrInactive}>
               Generate Token
             </button>
           </form>
@@ -150,16 +214,16 @@ const Token = () => {
             <div className="summary-card highlight">
               <h3>Your token is ready</h3>
               <div className="token-number">#{created.tokenNumber}</div>
-              <p>
+              <p className="detail-row">
                 Name: <strong>{created.userName}</strong>
               </p>
-              <p>
+              <p className="detail-row">
                 Purpose: <strong>{created.purpose}</strong>
               </p>
-              <p>
+              <p className="detail-row">
                 Department: <strong>{created.department}</strong>
               </p>
-              <p>
+              <p className="detail-note">
                 Aapka number approx{" "}
                 <strong>{Math.max(5, deptPending * 6)} min</strong> me aane wala
                 hai.
@@ -167,9 +231,6 @@ const Token = () => {
               <div className="summary-actions">
                 <button className="ghost" onClick={() => navigate("/home")}>
                   Return Home
-                </button>
-                <button className="primary" onClick={() => navigate("/admin")}>
-                  View Admin
                 </button>
               </div>
             </div>

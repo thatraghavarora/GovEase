@@ -7,5 +7,673 @@
       "mobile": "12",
       "password": "Raghav@123"
     }
-  ]
+  ],
+  "admins": [
+    {
+      "id": "admin-hsp-jpr-001",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "username": "sms",
+      "password": "sms",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-002",
+      "centerId": "hsp-jpr-002",
+      "centerName": "Fortis Escorts Jaipur",
+      "centerCode": "JPR-HSP-002",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-002",
+      "password": "JPR-HSP-002",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-003",
+      "centerId": "hsp-jpr-003",
+      "centerName": "Jaipur Golden Hospital",
+      "centerCode": "JPR-HSP-003",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-003",
+      "password": "JPR-HSP-003",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-004",
+      "centerId": "hsp-jpr-004",
+      "centerName": "Maheshwari Hospital",
+      "centerCode": "JPR-HSP-004",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-004",
+      "password": "JPR-HSP-004",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-005",
+      "centerId": "hsp-jpr-005",
+      "centerName": "Eternal Heart Care Centre",
+      "centerCode": "JPR-HSP-005",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-005",
+      "password": "JPR-HSP-005",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-006",
+      "centerId": "hsp-jpr-006",
+      "centerName": "Apex Hospital",
+      "centerCode": "JPR-HSP-006",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-006",
+      "password": "JPR-HSP-006",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-007",
+      "centerId": "hsp-jpr-007",
+      "centerName": "EHCC Emergency",
+      "centerCode": "JPR-HSP-007",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-007",
+      "password": "JPR-HSP-007",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-008",
+      "centerId": "hsp-jpr-008",
+      "centerName": "Goyal Hospital",
+      "centerCode": "JPR-HSP-008",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-008",
+      "password": "JPR-HSP-008",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-009",
+      "centerId": "hsp-jpr-009",
+      "centerName": "Tagore Hospital",
+      "centerCode": "JPR-HSP-009",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-009",
+      "password": "JPR-HSP-009",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-010",
+      "centerId": "hsp-jpr-010",
+      "centerName": "Mahatma Gandhi Hospital",
+      "centerCode": "JPR-HSP-010",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-010",
+      "password": "JPR-HSP-010",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-011",
+      "centerId": "hsp-jpr-011",
+      "centerName": "Sawai Man Singh OPD",
+      "centerCode": "JPR-HSP-011",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-011",
+      "password": "JPR-HSP-011",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-012",
+      "centerId": "hsp-jpr-012",
+      "centerName": "Khandaka Memorial Hospital",
+      "centerCode": "JPR-HSP-012",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-012",
+      "password": "JPR-HSP-012",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-013",
+      "centerId": "hsp-jpr-013",
+      "centerName": "Jawahar Hospital",
+      "centerCode": "JPR-HSP-013",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-013",
+      "password": "JPR-HSP-013",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-014",
+      "centerId": "hsp-jpr-014",
+      "centerName": "Bharat Hospital",
+      "centerCode": "JPR-HSP-014",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-014",
+      "password": "JPR-HSP-014",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-015",
+      "centerId": "hsp-jpr-015",
+      "centerName": "Pink City Hospital",
+      "centerCode": "JPR-HSP-015",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-015",
+      "password": "JPR-HSP-015",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-016",
+      "centerId": "hsp-jpr-016",
+      "centerName": "Rajasthan Hospital",
+      "centerCode": "JPR-HSP-016",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-016",
+      "password": "JPR-HSP-016",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-017",
+      "centerId": "hsp-jpr-017",
+      "centerName": "Aravali Hospital",
+      "centerCode": "JPR-HSP-017",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-017",
+      "password": "JPR-HSP-017",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-018",
+      "centerId": "hsp-jpr-018",
+      "centerName": "Shree Hospital",
+      "centerCode": "JPR-HSP-018",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-018",
+      "password": "JPR-HSP-018",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-019",
+      "centerId": "hsp-jpr-019",
+      "centerName": "Nirmal Hospital",
+      "centerCode": "JPR-HSP-019",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-019",
+      "password": "JPR-HSP-019",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-hsp-jpr-020",
+      "centerId": "hsp-jpr-020",
+      "centerName": "Aarogya Hospital",
+      "centerCode": "JPR-HSP-020",
+      "centerType": "Hospital",
+      "username": "hsp-jpr-020",
+      "password": "JPR-HSP-020",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-101",
+      "centerId": "rto-jpr-101",
+      "centerName": "Jaipur RTO Office",
+      "centerCode": "JPR-RTO-101",
+      "centerType": "RTO",
+      "username": "rto-jpr-101",
+      "password": "JPR-RTO-101",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-102",
+      "centerId": "rto-jpr-102",
+      "centerName": "RTO North Jaipur",
+      "centerCode": "JPR-RTO-102",
+      "centerType": "RTO",
+      "username": "rto-jpr-102",
+      "password": "JPR-RTO-102",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-103",
+      "centerId": "rto-jpr-103",
+      "centerName": "RTO South Jaipur",
+      "centerCode": "JPR-RTO-103",
+      "centerType": "RTO",
+      "username": "rto-jpr-103",
+      "password": "JPR-RTO-103",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-104",
+      "centerId": "rto-jpr-104",
+      "centerName": "RTO East Jaipur",
+      "centerCode": "JPR-RTO-104",
+      "centerType": "RTO",
+      "username": "rto-jpr-104",
+      "password": "JPR-RTO-104",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-105",
+      "centerId": "rto-jpr-105",
+      "centerName": "RTO West Jaipur",
+      "centerCode": "JPR-RTO-105",
+      "centerType": "RTO",
+      "username": "rto-jpr-105",
+      "password": "JPR-RTO-105",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-106",
+      "centerId": "rto-jpr-106",
+      "centerName": "RTO Mansarovar",
+      "centerCode": "JPR-RTO-106",
+      "centerType": "RTO",
+      "username": "rto-jpr-106",
+      "password": "JPR-RTO-106",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-107",
+      "centerId": "rto-jpr-107",
+      "centerName": "RTO Malviya Nagar",
+      "centerCode": "JPR-RTO-107",
+      "centerType": "RTO",
+      "username": "rto-jpr-107",
+      "password": "JPR-RTO-107",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-108",
+      "centerId": "rto-jpr-108",
+      "centerName": "RTO Civil Lines",
+      "centerCode": "JPR-RTO-108",
+      "centerType": "RTO",
+      "username": "rto-jpr-108",
+      "password": "JPR-RTO-108",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-109",
+      "centerId": "rto-jpr-109",
+      "centerName": "RTO Tonk Road",
+      "centerCode": "JPR-RTO-109",
+      "centerType": "RTO",
+      "username": "rto-jpr-109",
+      "password": "JPR-RTO-109",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-110",
+      "centerId": "rto-jpr-110",
+      "centerName": "RTO Jhotwara",
+      "centerCode": "JPR-RTO-110",
+      "centerType": "RTO",
+      "username": "rto-jpr-110",
+      "password": "JPR-RTO-110",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-111",
+      "centerId": "rto-jpr-111",
+      "centerName": "RTO Sanganer",
+      "centerCode": "JPR-RTO-111",
+      "centerType": "RTO",
+      "username": "rto-jpr-111",
+      "password": "JPR-RTO-111",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-112",
+      "centerId": "rto-jpr-112",
+      "centerName": "RTO Chitrakoot",
+      "centerCode": "JPR-RTO-112",
+      "centerType": "RTO",
+      "username": "rto-jpr-112",
+      "password": "JPR-RTO-112",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-113",
+      "centerId": "rto-jpr-113",
+      "centerName": "RTO Jagatpura",
+      "centerCode": "JPR-RTO-113",
+      "centerType": "RTO",
+      "username": "rto-jpr-113",
+      "password": "JPR-RTO-113",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-114",
+      "centerId": "rto-jpr-114",
+      "centerName": "RTO Amer",
+      "centerCode": "JPR-RTO-114",
+      "centerType": "RTO",
+      "username": "rto-jpr-114",
+      "password": "JPR-RTO-114",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-rto-jpr-115",
+      "centerId": "rto-jpr-115",
+      "centerName": "RTO Govindpura",
+      "centerCode": "JPR-RTO-115",
+      "centerType": "RTO",
+      "username": "rto-jpr-115",
+      "password": "JPR-RTO-115",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-201",
+      "centerId": "gov-jpr-201",
+      "centerName": "Jaipur District Collectorate",
+      "centerCode": "JPR-GOV-201",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-201",
+      "password": "JPR-GOV-201",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-202",
+      "centerId": "gov-jpr-202",
+      "centerName": "Jaipur Nagar Nigam",
+      "centerCode": "JPR-GOV-202",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-202",
+      "password": "JPR-GOV-202",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-203",
+      "centerId": "gov-jpr-203",
+      "centerName": "Rajasthan Seva Sadan",
+      "centerCode": "JPR-GOV-203",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-203",
+      "password": "JPR-GOV-203",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-204",
+      "centerId": "gov-jpr-204",
+      "centerName": "Jaipur UIDAI Center",
+      "centerCode": "JPR-GOV-204",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-204",
+      "password": "JPR-GOV-204",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-205",
+      "centerId": "gov-jpr-205",
+      "centerName": "Jaipur Passport Seva",
+      "centerCode": "JPR-GOV-205",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-205",
+      "password": "JPR-GOV-205",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-206",
+      "centerId": "gov-jpr-206",
+      "centerName": "Jaipur Civil Supplies",
+      "centerCode": "JPR-GOV-206",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-206",
+      "password": "JPR-GOV-206",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-207",
+      "centerId": "gov-jpr-207",
+      "centerName": "Jaipur Employment Office",
+      "centerCode": "JPR-GOV-207",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-207",
+      "password": "JPR-GOV-207",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-208",
+      "centerId": "gov-jpr-208",
+      "centerName": "Jaipur Women & Child Dept",
+      "centerCode": "JPR-GOV-208",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-208",
+      "password": "JPR-GOV-208",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-209",
+      "centerId": "gov-jpr-209",
+      "centerName": "Jaipur Health Department",
+      "centerCode": "JPR-GOV-209",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-209",
+      "password": "JPR-GOV-209",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-210",
+      "centerId": "gov-jpr-210",
+      "centerName": "Jaipur Education Office",
+      "centerCode": "JPR-GOV-210",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-210",
+      "password": "JPR-GOV-210",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-211",
+      "centerId": "gov-jpr-211",
+      "centerName": "Jaipur Housing Board",
+      "centerCode": "JPR-GOV-211",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-211",
+      "password": "JPR-GOV-211",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-212",
+      "centerId": "gov-jpr-212",
+      "centerName": "Jaipur Police Seva Kendra",
+      "centerCode": "JPR-GOV-212",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-212",
+      "password": "JPR-GOV-212",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-213",
+      "centerId": "gov-jpr-213",
+      "centerName": "Jaipur Transport Office",
+      "centerCode": "JPR-GOV-213",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-213",
+      "password": "JPR-GOV-213",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-214",
+      "centerId": "gov-jpr-214",
+      "centerName": "Jaipur Treasury Office",
+      "centerCode": "JPR-GOV-214",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-214",
+      "password": "JPR-GOV-214",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    },
+    {
+      "id": "admin-gov-jpr-215",
+      "centerId": "gov-jpr-215",
+      "centerName": "Jaipur Smart City Office",
+      "centerCode": "JPR-GOV-215",
+      "centerType": "Govt Office",
+      "username": "gov-jpr-215",
+      "password": "JPR-GOV-215",
+      "createdAt": "2026-01-18T16:20:15.497Z"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "hsp-jpr-001-1768752926376",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "test@test.com",
+      "userName": "admin",
+      "userPhone": "1233456788",
+      "purpose": "11",
+      "status": "approved",
+      "createdAt": "2026-01-18T16:15:26.376Z",
+      "tokenNumber": 1,
+      "approvedAt": "2026-01-18T16:20:57.803Z"
+    },
+    {
+      "id": "hsp-jpr-001-1768753414767",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "test@test.com",
+      "userName": "Raghav",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "cleared",
+      "createdAt": "2026-01-18T16:23:34.767Z",
+      "tokenNumber": 2,
+      "approvedAt": "2026-01-18T16:24:03.224Z",
+      "clearedAt": "2026-01-18T16:24:21.843Z"
+    },
+    {
+      "id": "hsp-jpr-001-1768753983021",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "test@test.com",
+      "userName": "Raghav",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "cleared",
+      "createdAt": "2026-01-18T16:33:03.021Z",
+      "tokenNumber": 3,
+      "approvedAt": "2026-01-18T16:34:53.077Z",
+      "clearedAt": "2026-01-18T16:37:14.599Z"
+    },
+    {
+      "id": "hsp-jpr-001-1768754364306",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "test@test.com",
+      "userName": "Raghav",
+      "userPhone": "8000778246",
+      "purpose": "Ear",
+      "status": "cleared",
+      "createdAt": "2026-01-18T16:39:24.306Z",
+      "tokenNumber": 4,
+      "approvedAt": "2026-01-18T16:48:10.292Z",
+      "clearedAt": "2026-01-18T16:48:31.687Z"
+    },
+    {
+      "id": "hsp-jpr-001-1768759324149",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "Raghavarora930@gmail.com",
+      "userName": "Raghav Arora",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "cleared",
+      "createdAt": "2026-01-18T18:02:04.149Z",
+      "tokenNumber": 5,
+      "approvedAt": "2026-01-18T18:52:32.779Z",
+      "clearedAt": "2026-01-18T18:52:38.658Z"
+    },
+    {
+      "id": "gov-jpr-205-1768762441449",
+      "centerId": "gov-jpr-205",
+      "centerName": "Jaipur Passport Seva",
+      "centerCode": "JPR-GOV-205",
+      "centerType": "Govt Office",
+      "department": "Passport",
+      "createdBy": "test123@test.com",
+      "userName": "Raghav Arora",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "pending",
+      "createdAt": "2026-01-18T18:54:01.449Z",
+      "tokenNumber": 1
+    },
+    {
+      "id": "hsp-jpr-001-1768762471348",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "Orthopedics",
+      "createdBy": "test123@test.com",
+      "userName": "Raghav Arora",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "cleared",
+      "createdAt": "2026-01-18T18:54:31.348Z",
+      "tokenNumber": 1,
+      "approvedAt": "2026-01-18T18:55:24.183Z",
+      "clearedAt": "2026-01-18T18:55:37.202Z"
+    },
+    {
+      "id": "hsp-jpr-001-1768922078445",
+      "centerId": "hsp-jpr-001",
+      "centerName": "SMS Hospital Jaipur",
+      "centerCode": "JPR-HSP-001",
+      "centerType": "Hospital",
+      "department": "OPD",
+      "createdBy": "thatcyber@gmail.com",
+      "userName": "RAGHAV ARORA",
+      "userPhone": "8000778246",
+      "purpose": "OPD",
+      "status": "approved",
+      "createdAt": "2026-01-20T15:14:38.445Z",
+      "tokenNumber": 6,
+      "approvedAt": "2026-01-20T15:18:56.123Z"
+    }
+  ],
+  "qrCodes": [
+    {
+      "code": "qr-hsp-jpr-001-1768761568505-q4luek",
+      "centerId": "hsp-jpr-001",
+      "active": true,
+      "createdAt": "2026-01-18T18:39:28.505Z"
+    },
+    {
+      "code": "qr-hsp-jpr-001-1768761620750-ukrt6o",
+      "centerId": "hsp-jpr-001",
+      "active": true,
+      "createdAt": "2026-01-18T18:40:20.750Z"
+    },
+    {
+      "code": "qr-hsp-jpr-001-1768761620750-mcdhkq",
+      "centerId": "hsp-jpr-001",
+      "active": true,
+      "createdAt": "2026-01-18T18:40:20.750Z"
+    },
+    {
+      "code": "qr-hsp-jpr-001-1768761623977-zmsgfq",
+      "centerId": "hsp-jpr-001",
+      "active": false,
+      "createdAt": "2026-01-18T18:40:23.977Z",
+      "updatedAt": "2026-01-18T18:40:26.063Z"
+    }
+  ],
+  "counters": {
+    "hsp-jpr-001-OPD": 6,
+    "gov-jpr-205-Passport": 1,
+    "hsp-jpr-001-Orthopedics": 1
+  }
 }

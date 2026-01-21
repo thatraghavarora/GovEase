@@ -1,0 +1,272 @@
+.user-page {
+  min-height: 100vh;
+  padding: 0;
+  background: #dfe7ef;
+  color: #102a43;
+  display: flex;
+  justify-content: center;
+}
+
+.user-shell {
+  width: min(420px, 100%);
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 1.8rem 1.4rem 7rem;
+  box-shadow: 0 30px 80px rgba(15, 34, 56, 0.12);
+  border-radius: 32px;
+  position: relative;
+}
+
+.user-header {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.user-header h1 {
+  font-size: 1.6rem;
+}
+
+.user-header p {
+  color: #486581;
+  font-size: 0.85rem;
+}
+
+.user-card {
+  background: #f6f8fb;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(16, 42, 67, 0.1);
+  color: #486581;
+}
+
+.profile-card {
+  background: linear-gradient(135deg, #0a6f86, #084d60);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.profile-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.profile-actions .ghost {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  padding: 0.5rem 1.1rem;
+}
+
+.profile-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.profile-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #486581;
+}
+
+.profile-item strong {
+  color: #102a43;
+  font-weight: 600;
+}
+
+.scan-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.scan-preview {
+  border-radius: 16px;
+  background: #f6f8fb;
+  border: 1px dashed rgba(16, 42, 67, 0.2);
+  height: 220px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.scan-live {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scan-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-start {
+  position: absolute;
+  inset: auto 12px 12px;
+  background: #0a6f86;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+.scan-placeholder {
+  color: #486581;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.scan-error {
+  color: #b4231b;
+  font-size: 0.85rem;
+}
+
+.ticket-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.ticket-row {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ticket-token {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a6f86;
+}
+
+.ticket-center {
+  font-weight: 600;
+  color: #102a43;
+}
+
+.ticket-meta {
+  font-size: 0.8rem;
+  color: #486581;
+  margin-top: 0.3rem;
+}
+
+.ticket-eta {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #0a6f86;
+  font-weight: 600;
+}
+
+.ticket-status-badge {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(16, 42, 67, 0.08);
+  color: #486581;
+}
+
+.ticket-status-badge.status-pending {
+  background: rgba(10, 111, 134, 0.15);
+  color: #0a6f86;
+}
+
+.ticket-status-badge.status-approved {
+  background: rgba(47, 158, 143, 0.18);
+  color: #1b7f73;
+}
+
+.ticket-status-badge.status-rejected {
+  background: rgba(217, 48, 37, 0.15);
+  color: #b4231b;
+}
+
+.ticket-status-badge.status-cleared {
+  background: rgba(16, 42, 67, 0.08);
+  color: #486581;
+}
+
+.ticket-actions {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: end;
+}
+
+.ticket-actions .ghost {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.7rem;
+}
+
+.ticket-print {
+  display: none;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .bottom-nav-wrap,
+  .ticket-list,
+  .user-header {
+    display: none;
+  }
+
+  .ticket-print {
+    display: block;
+    border: 1px dashed rgba(16, 42, 67, 0.5);
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: #102a43;
+  }
+
+  .ticket-print h2 {
+    margin-bottom: 0.6rem;
+  }
+
+  .ticket-print .print-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-shell {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

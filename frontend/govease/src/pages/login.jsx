@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { loginLocalUser } from "../services/auth";
+import { loginLocalUser, loginWithGoogle } from "../services/auth";
+import { initGoogleButton } from "../services/googleAuth";
+import logo from "../assets/logo.png";
 
 import "./login.css";
 
@@ -10,12 +12,58 @@ const Login = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
+    const googleButtonRef = useRef(null);
+    const hasGoogleClientId = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!hasGoogleClientId || !googleButtonRef.current) {
+            return;
+        }
+
+        let canceled = false;
+
+        const init = async () => {
+            try {
+                await initGoogleButton({
+                    clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                    container: googleButtonRef.current,
+                    onCredential: (credential) => {
+                        if (canceled) {
+                            return;
+                        }
+
+                        try {
+                            const user = loginWithGoogle(credential);
+                            navigate(user.role === "admin" ? "/admin" : "/home");
+                        } catch (err) {
+                            setError(err.message || "Google login failed");
+                        }
+                    },
+                    onError: (err) => {
+                        if (!canceled) {
+                            setError(err.message || "Google login failed");
+                        }
+                    },
+                });
+            } catch (err) {
+                if (!canceled) {
+                    setError(err.message || "Google login failed");
+                }
+            }
+        };
+
+        init();
+
+        return () => {
+            canceled = true;
+        };
+    }, [hasGoogleClientId, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,6 +84,7 @@ const Login = () => {
     return (
         <div className="auth-page login-wrapper">
             <div className="login-card">
+                <img src={logo} alt="GovEase logo" className="auth-logo" />
                 <h2>GovEase</h2>
                 <p className="subtitle">Secure Government Access Portal</p>
 
@@ -73,6 +122,15 @@ const Login = () => {
                     <button type="submit" disabled={loading}>
                         {loading ? "Logging in..." : "Login"}
                     </button>
+
+                    {hasGoogleClientId && (
+                        <>
+                            <div className="auth-divider">
+                                <span>or</span>
+                            </div>
+                            <div className="google-button" ref={googleButtonRef} />
+                        </>
+                    )}
 
                     <p className="create-account">
                         Don’t have an account?{" "}

@@ -2,22 +2,11 @@ import { useMemo, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import centers from "../data/centers";
 import services from "../data/services.json";
-import { getPendingCount, loadTokens } from "../services/queue";
+import { fetchTokens } from "../services/api";
 import { getSession, logoutLocalUser } from "../services/auth";
 import logo from "../assets/logo.png";
+import BottomNav from "../components/BottomNav";
 import "./home.css";
-
-const buildQueueMap = () => {
-  const tokens = loadTokens();
-  return tokens.reduce((acc, token) => {
-    if (token.status !== "pending") {
-      return acc;
-    }
-
-    acc[token.centerId] = (acc[token.centerId] || 0) + 1;
-    return acc;
-  }, {});
-};
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,11 +18,32 @@ const Home = () => {
   const [locationFilter, setLocationFilter] = useState("All");
   const [locationStatus, setLocationStatus] = useState("idle");
   const [currentCity, setCurrentCity] = useState("All");
-  const [queueMap, setQueueMap] = useState(() => buildQueueMap());
+  const [pendingTokens, setPendingTokens] = useState([]);
+  const [myTokens, setMyTokens] = useState([]);
 
   useEffect(() => {
-    setQueueMap(buildQueueMap());
-  }, [location.pathname]);
+    const load = async () => {
+      try {
+        const pendingResponse = await fetchTokens({ status: "pending" });
+        setPendingTokens(pendingResponse.data);
+      } catch (error) {
+        setPendingTokens([]);
+      }
+
+      if (session?.email) {
+        try {
+          const myResponse = await fetchTokens({ createdBy: session.email });
+          setMyTokens(myResponse.data.slice(-4).reverse());
+        } catch (error) {
+          setMyTokens([]);
+        }
+      } else {
+        setMyTokens([]);
+      }
+    };
+
+    load();
+  }, [location.pathname, session?.email]);
 
   const filteredCenters = useMemo(() => {
     const activeService =
@@ -57,19 +67,15 @@ const Home = () => {
   }, [search, selectedService, locationFilter, currentCity]);
 
   const totalPending = useMemo(() => {
-    return centers.reduce((sum, center) => sum + getPendingCount(center.id), 0);
-  }, [queueMap]);
+    return pendingTokens.length;
+  }, [pendingTokens]);
 
-  const myTokens = useMemo(() => {
-    if (!session?.email) {
-      return [];
-    }
-
-    return loadTokens()
-      .filter((token) => token.createdBy === session.email)
-      .slice(-4)
-      .reverse();
-  }, [session]);
+  const queueMap = useMemo(() => {
+    return pendingTokens.reduce((acc, token) => {
+      acc[token.centerId] = (acc[token.centerId] || 0) + 1;
+      return acc;
+    }, {});
+  }, [pendingTokens]);
 
   const locations = useMemo(() => {
     const unique = Array.from(new Set(centers.map((center) => center.location)));
@@ -112,11 +118,6 @@ const Home = () => {
             </div>
           </div>
           <div className="header-actions">
-            {session?.role === "admin" && (
-              <button className="primary" onClick={() => navigate("/admin")}>
-                Admin
-              </button>
-            )}
             <button
               className="ghost"
               onClick={() => {
@@ -288,13 +289,7 @@ const Home = () => {
           </div>
         </section>
 
-        <footer className="bottom-nav">
-          <button className="active">Home</button>
-          <button>Appointments</button>
-          <button className="scan-button">Scan</button>
-          <button>Tickets</button>
-          <button>Profile</button>
-        </footer>
+        <BottomNav />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@
   width: min(420px, 100%);
   min-height: 100vh;
   background: #ffffff;
-  padding: 1.8rem 1.4rem 6rem;
+  padding: 1.8rem 1.4rem 7rem;
   box-shadow: 0 30px 80px rgba(15, 34, 56, 0.12);
   border-radius: 32px;
   position: relative;
@@ -32,12 +32,9 @@
 }
 
 .avatar-block img {
-  width: 46px;
+
   height: 46px;
-  border-radius: 16px;
-  object-fit: contain;
-  background: #f6f8fb;
-  padding: 6px;
+
 }
 
 .welcome-text {
@@ -313,42 +310,6 @@
   margin-top: 0.3rem;
 }
 
-.bottom-nav {
-  position: sticky;
-  bottom: 0.8rem;
-  left: 0;
-  right: 0;
-  margin: 2rem auto 0;
-  background: #ffffff;
-  border-radius: 999px;
-  padding: 0.5rem 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.6rem;
-  box-shadow: 0 12px 30px rgba(15, 34, 56, 0.12);
-  border: 1px solid rgba(16, 42, 67, 0.08);
-}
-
-.bottom-nav button {
-  background: transparent;
-  border: none;
-  color: #486581;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.bottom-nav .active {
-  color: #0a6f86;
-}
-
-.bottom-nav .scan-button {
-  background: #0a6f86;
-  color: #ffffff;
-  padding: 0.6rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-}
 
 @media (min-width: 900px) {
   .home-page {
@@ -364,5 +325,15 @@
   .home-shell {
     border-radius: 0;
     box-shadow: none;
+  }
+
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
 }

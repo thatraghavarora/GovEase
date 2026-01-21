@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { registerLocalUser } from "../services/auth";
+import { loginWithGoogle, registerLocalUser } from "../services/auth";
+import { initGoogleButton } from "../services/googleAuth";
+import logo from "../assets/logo.png";
 import "./register.css";
 
 const Register = () => {
@@ -11,11 +13,12 @@ const Register = () => {
         email: "",
         mobile: "",
         password: "",
-        role: "user",
     });
 
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const googleButtonRef = useRef(null);
+    const hasGoogleClientId = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
     const handleChange = (e) => {
         setForm({
@@ -39,9 +42,54 @@ const Register = () => {
         }
     };
 
+    useEffect(() => {
+        if (!hasGoogleClientId || !googleButtonRef.current) {
+            return;
+        }
+
+        let canceled = false;
+
+        const init = async () => {
+            try {
+                await initGoogleButton({
+                    clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                    container: googleButtonRef.current,
+                    onCredential: (credential) => {
+                        if (canceled) {
+                            return;
+                        }
+
+                        try {
+                            const user = loginWithGoogle(credential);
+                            navigate(user.role === "admin" ? "/admin" : "/home");
+                        } catch (err) {
+                            setError(err.message || "Google registration failed");
+                        }
+                    },
+                    onError: (err) => {
+                        if (!canceled) {
+                            setError(err.message || "Google registration failed");
+                        }
+                    },
+                });
+            } catch (err) {
+                if (!canceled) {
+                    setError(err.message || "Google registration failed");
+                }
+            }
+        };
+
+        init();
+
+        return () => {
+            canceled = true;
+        };
+    }, [hasGoogleClientId, navigate]);
+
     return (
         <div className="auth-page login-wrapper">
             <div className="login-card">
+                <img src={logo} alt="GovEase logo" className="auth-logo" />
                 <h2>Create Account</h2>
                 <p className="subtitle">Register to access GovEase</p>
 
@@ -84,19 +132,18 @@ const Register = () => {
                         required
                     />
 
-                    <select
-                        name="role"
-                        value={form.role}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="user">User account</option>
-                        <option value="admin">Admin account</option>
-                    </select>
-
                     <button type="submit" disabled={loading}>
                         {loading ? "Creating..." : "Create Account"}
                     </button>
+
+                    {hasGoogleClientId && (
+                        <>
+                            <div className="auth-divider">
+                                <span>or</span>
+                            </div>
+                            <div className="google-button" ref={googleButtonRef} />
+                        </>
+                    )}
                 </form>
 
                 {/* ✅ LOGIN OPTION */}

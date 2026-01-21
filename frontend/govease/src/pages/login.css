@@ -13,18 +13,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 0;
 }
 
 /* ===== LOGIN CARD ===== */
 .login-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     background: #ffffff;
-    border-radius: 24px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* ===== WAVE HEADER ===== */
@@ -40,11 +44,24 @@
     border-bottom-right-radius: 55% 28%;
 }
 
+.auth-logo {
+    position: relative;
+    z-index: 1;
+    width: 64px;
+    height: 64px;
+    margin: 26px auto 6px;
+    display: block;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
 /* ===== BRAND ===== */
 .login-card h2 {
     position: relative;
     z-index: 1;
-    margin-top: 42px;
+    margin-top: 10px;
     text-align: center;
     font-size: 28px;
     font-weight: 600;
@@ -62,8 +79,8 @@
 
 /* ===== FORM ===== */
 .auth-page form {
-    margin-top: 150px;
-    padding: 0 28px 32px;
+    margin-top: 120px;
+    padding: 0 24px 32px;
 }
 
 /* ===== ERROR ===== */
@@ -85,10 +102,11 @@
     height: 48px;
     padding: 0 46px;
     border-radius: 14px;
-    border: 1.5px solid #cfdde3;
+    border: 1.5px solid #d4e1e7;
     font-size: 14px;
     outline: none;
     transition: 0.25s;
+    background: #f9fcfd;
 }
 
 .input-group input:focus {
@@ -140,6 +158,35 @@
     cursor: not-allowed;
 }
 
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 12px;
+    color: #6b7c85;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #d8e3e8;
+}
+
+.google-button {
+    display: flex;
+    justify-content: center;
+}
+
+.google-button > div {
+    width: 100%;
+    max-width: 320px;
+}
+
 .create-account {
     text-align: center;
     margin-top: 14px;
@@ -189,7 +236,7 @@
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
     .login-card {
-        border-radius: 18px;
+        border-radius: 0;
     }
 
     .login-card::before {

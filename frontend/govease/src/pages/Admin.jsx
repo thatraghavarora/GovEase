@@ -1,23 +1,60 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import centers from "../data/centers";
+import { getCenterById } from "../data/centers";
 import {
-  loadTokens,
-  serveNextToken,
-  markTokenCalled,
-  getPendingTokens,
-} from "../services/queue";
-import { logoutLocalUser } from "../services/auth";
+  approveToken,
+  clearToken,
+  createAdminQrs,
+  fetchAdminTokens,
+  fetchAdminQrs,
+  rejectToken,
+  toggleAdminQr,
+} from "../services/api";
+import { getSession, logoutLocalUser } from "../services/auth";
 import "./admin.css";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const [tokens, setTokens] = useState(loadTokens());
+  const session = getSession();
+  const center = getCenterById(session?.centerId);
+  const [tokens, setTokens] = useState([]);
   const [selectedToken, setSelectedToken] = useState(null);
-  const [selectedCenter, setSelectedCenter] = useState("all");
   const [selectedDepartment, setSelectedDepartment] = useState("all");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [qrs, setQrs] = useState([]);
+  const [qrCount, setQrCount] = useState(1);
 
-  const refreshTokens = () => setTokens(loadTokens());
+  const refreshTokens = async () => {
+    if (!session?.centerId) {
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetchAdminTokens({ centerId: session.centerId });
+      setTokens(response.data);
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Failed to load tokens");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const refreshQrs = async () => {
+    if (!session?.centerId) {
+      return;
+    }
+
+    try {
+      const response = await fetchAdminQrs({ centerId: session.centerId });
+      setQrs(response.data);
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Failed to load QR");
+    }
+  };
 
   const pendingTokens = useMemo(
     () => tokens.filter((token) => token.status === "pending"),
@@ -25,55 +62,125 @@ const Admin = () => {
   );
 
   const availableDepartments = useMemo(() => {
-    const center = centers.find((item) => item.id === selectedCenter);
     return center?.departments || [];
-  }, [selectedCenter]);
+  }, [center]);
 
   const filteredTokens = useMemo(() => {
     return pendingTokens.filter((token) => {
-      const matchesCenter = selectedCenter === "all" || token.centerId === selectedCenter;
-      const matchesDepartment =
-        selectedDepartment === "all" || token.department === selectedDepartment;
-      return matchesCenter && matchesDepartment;
+      return (
+        selectedDepartment === "all" || token.department === selectedDepartment
+      );
     });
-  }, [pendingTokens, selectedCenter, selectedDepartment]);
+  }, [pendingTokens, selectedDepartment]);
 
-  const handleServeNext = (centerId) => {
-    const served = serveNextToken(centerId);
+  useEffect(() => {
     refreshTokens();
-    if (served) {
-      setSelectedToken(served);
+    refreshQrs();
+  }, [session?.centerId]);
+
+  const handleApprove = async (token) => {
+    try {
+      const response = await approveToken(token.id);
+      setSelectedToken(response.data);
+      await refreshTokens();
+      if (window.confirm("Token approved. Print slip now?")) {
+        window.print();
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Approval failed");
     }
   };
 
-  const handleGenerateSlip = (token) => {
-    const called = markTokenCalled(token.id);
-    refreshTokens();
-    setSelectedToken(called || token);
+  const handleReject = async (token) => {
+    if (!window.confirm("Reject this token?")) {
+      return;
+    }
+
+    try {
+      const response = await rejectToken(token.id);
+      setSelectedToken(response.data);
+      await refreshTokens();
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Rejection failed");
+    }
   };
+
+  const handleClear = async (token) => {
+    try {
+      const response = await clearToken(token.id);
+      setSelectedToken(response.data);
+      await refreshTokens();
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "Clear failed");
+    }
+  };
+
+  const handleCreateQrs = async () => {
+    try {
+      await createAdminQrs({
+        centerId: session.centerId,
+        count: qrCount,
+      });
+      await refreshQrs();
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "QR create failed");
+    }
+  };
+
+  const handleToggleQr = async (code) => {
+    try {
+      await toggleAdminQr(code);
+      await refreshQrs();
+    } catch (err) {
+      setError(err.response?.data?.message || err.message || "QR update failed");
+    }
+  };
+
+  const todayKey = new Date().toDateString();
+  const todayTokens = tokens.filter(
+    (token) => new Date(token.createdAt).toDateString() === todayKey
+  );
+  const completedToday = todayTokens.filter((token) =>
+    ["approved", "cleared"].includes(token.status)
+  ).length;
 
   return (
     <div className="admin-page">
       <header className="admin-header">
         <div>
           <p className="tag">Admin Panel</p>
-          <h1>Manage live queues & print slips.</h1>
+          <h1>{center?.name || "Center"} token approvals</h1>
+          <p className="center-meta">
+            {center?.type} • {center?.location} • Code {center?.code}
+          </p>
         </div>
         <div className="admin-actions">
-          <button className="ghost" onClick={() => navigate("/home")}>
-            Back to Home
-          </button>
           <button
             className="ghost"
             onClick={() => {
               logoutLocalUser();
-              navigate("/login");
+              navigate("/admin/login");
             }}
           >
             Sign out
           </button>
         </div>
       </header>
+
+      <section className="admin-dashboard">
+        <div className="dash-card">
+          <p>Total line today</p>
+          <strong>{todayTokens.length}</strong>
+        </div>
+        <div className="dash-card">
+          <p>Waiting now</p>
+          <strong>{pendingTokens.length}</strong>
+        </div>
+        <div className="dash-card">
+          <p>Completed today</p>
+          <strong>{completedToday}</strong>
+        </div>
+      </section>
 
       <section className="admin-grid">
         <div className="queue-panel">
@@ -83,23 +190,8 @@ const Admin = () => {
               <p>{pendingTokens.length} pending requests</p>
             </div>
             <select
-              value={selectedCenter}
-              onChange={(event) => {
-                setSelectedCenter(event.target.value);
-                setSelectedDepartment("all");
-              }}
-            >
-              <option value="all">All centers</option>
-              {centers.map((center) => (
-                <option key={center.id} value={center.id}>
-                  {center.name}
-                </option>
-              ))}
-            </select>
-            <select
               value={selectedDepartment}
               onChange={(event) => setSelectedDepartment(event.target.value)}
-              disabled={selectedCenter === "all"}
             >
               <option value="all">All departments</option>
               {availableDepartments.map((dept) => (
@@ -111,6 +203,8 @@ const Admin = () => {
           </div>
 
           <div className="queue-list">
+            {error && <div className="empty">{error}</div>}
+            {loading && <div className="empty">Loading tokens...</div>}
             {filteredTokens.length === 0 && (
               <div className="empty">No pending tokens right now.</div>
             )}
@@ -122,16 +216,27 @@ const Admin = () => {
                     #{token.tokenNumber} · {token.userName}
                   </h3>
                   <p>
-                    {token.centerName} • {token.department || "General"} •{" "}
-                    {token.purpose}
+                    {token.department || "General"} • {token.purpose}
                   </p>
                 </div>
                 <div className="queue-actions">
                   <button
                     className="ghost"
-                    onClick={() => handleGenerateSlip(token)}
+                    onClick={() => setSelectedToken(token)}
                   >
-                    Generate Slip
+                    Details
+                  </button>
+                  <button
+                    className="ghost"
+                    onClick={() => handleReject(token)}
+                  >
+                    Reject
+                  </button>
+                  <button
+                    className="primary"
+                    onClick={() => handleApprove(token)}
+                  >
+                    Approve
                   </button>
                 </div>
               </div>
@@ -140,26 +245,25 @@ const Admin = () => {
         </div>
 
         <aside className="admin-side">
-          <div className="center-queue">
-            <h3>Serve next token</h3>
-            <p>Select a center to call the next token.</p>
-            <div className="center-list">
-              {centers.map((center) => {
-                const count = getPendingTokens(center.id).length;
-                return (
-                  <button
-                    key={center.id}
-                    className="center-row"
-                    onClick={() => handleServeNext(center.id)}
-                  >
-                    <div>
-                      <strong>{center.name}</strong>
-                      <span>{center.code}</span>
-                    </div>
-                    <span className="count">{count}</span>
-                  </button>
-                );
-              })}
+          <div className="stats-panel">
+            <h3>Queue stats</h3>
+            <div className="stats-grid">
+              <div>
+                <p>Pending</p>
+                <strong>{pendingTokens.length}</strong>
+              </div>
+              <div>
+                <p>Approved</p>
+                <strong>
+                  {tokens.filter((token) => token.status === "approved").length}
+                </strong>
+              </div>
+              <div>
+                <p>Rejected</p>
+                <strong>
+                  {tokens.filter((token) => token.status === "rejected").length}
+                </strong>
+              </div>
             </div>
           </div>
 
@@ -196,12 +300,68 @@ const Admin = () => {
                 </div>
                 <div className="slip-footer">
                   <span>Generated {new Date().toLocaleString()}</span>
-                  <button className="primary">Print Slip</button>
+                  <div className="slip-actions">
+                    <button
+                      className="ghost"
+                      onClick={() => window.print()}
+                    >
+                      Generate Slip
+                    </button>
+                    {["approved", "rejected"].includes(selectedToken.status) && (
+                      <button
+                        className="primary"
+                        onClick={() => handleClear(selectedToken)}
+                      >
+                        Clear Token
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (
               <p className="empty">Select a token to generate a slip.</p>
             )}
+          </div>
+
+          <div className="qr-panel">
+            <h3>QR generator</h3>
+            <p>Create unique QR codes for this center.</p>
+            <div className="qr-controls">
+              <input
+                type="number"
+                min="1"
+                max="50"
+                value={qrCount}
+                onChange={(event) => setQrCount(event.target.value)}
+              />
+              <button className="primary" onClick={handleCreateQrs}>
+                Create QR
+              </button>
+            </div>
+            <div className="qr-grid">
+              {qrs.length === 0 && <p className="empty">No QR codes yet.</p>}
+              {qrs.map((qr) => {
+                const url = `${window.location.origin}/token/${center?.id}?qr=${qr.code}`;
+                const qrImg = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(url)}`;
+                return (
+                  <div key={qr.code} className="qr-card">
+                    <img src={qrImg} alt="QR code" />
+                    <div>
+                      <p className="qr-code">{qr.code}</p>
+                      <p className={`qr-status ${qr.active ? "active" : "inactive"}`}>
+                        {qr.active ? "Active" : "Deactivated"}
+                      </p>
+                    </div>
+                    <button
+                      className="ghost"
+                      onClick={() => handleToggleQr(qr.code)}
+                    >
+                      {qr.active ? "Deactivate" : "Activate"}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </aside>
       </section>
